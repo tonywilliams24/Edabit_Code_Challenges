@@ -12,6 +12,8 @@ public class Challenge {
         return intArr;
     }
 
+    // INCOMPLETE
+
     public static String decrypt(int[] arr) {
         char charArr[] = new char[arr.length];
         charArr[0] = (char)arr[0];
