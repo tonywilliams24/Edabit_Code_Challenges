@@ -1,18 +1,17 @@
 package Math_Cryptography.DifferenceCipher;
 
 public class Challenge {
+
     public static int[] encrypt(String str) {
         int charArr[] = new int[str.length()];
         int intArr[] = new int[str.length()];
         for(int i=0; i<str.length(); i++) charArr[i] = (int)str.charAt(i);
         intArr[0] = charArr[0];
         for(int j=1; j<str.length(); j++) {
-        intArr[j] = charArr[j-1]-charArr[j];
+        intArr[j] = charArr[j] - charArr[j-1];
         }
         return intArr;
     }
-
-    // INCOMPLETE
 
     public static String decrypt(int[] arr) {
         char charArr[] = new char[arr.length];
