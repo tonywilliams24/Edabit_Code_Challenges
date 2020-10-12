@@ -1,6 +1,6 @@
-package Math_Cryptography.LengthOf3dLineSegment;
+package Math_or_Cryptography.LengthOf3dLineSegment;
 
-import static Math_Cryptography.LengthOf3dLineSegment.Challenge.lineLength;
+import static Math_or_Cryptography.LengthOf3dLineSegment.Challenge.lineLength;
 
 public class Main {
     public static void main(String[] args) {

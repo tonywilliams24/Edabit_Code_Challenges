@@ -1,4 +1,4 @@
-package Math_Cryptography.DifferenceCipher;
+package Math_or_Cryptography.DifferenceCipher;
 
 public class Challenge {
 

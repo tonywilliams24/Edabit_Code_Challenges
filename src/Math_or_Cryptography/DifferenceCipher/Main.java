@@ -1,8 +1,8 @@
-package Math_Cryptography.DifferenceCipher;
+package Math_or_Cryptography.DifferenceCipher;
 
 import java.util.Arrays;
-import static Math_Cryptography.DifferenceCipher.Challenge.decrypt;
-import static Math_Cryptography.DifferenceCipher.Challenge.encrypt;
+import static Math_or_Cryptography.DifferenceCipher.Challenge.decrypt;
+import static Math_or_Cryptography.DifferenceCipher.Challenge.encrypt;
 
 public class Main {
     public static void main(String[] args) {

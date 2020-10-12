@@ -1,4 +1,4 @@
-package Math_Cryptography.LengthOf3dLineSegment;
+package Math_or_Cryptography.LengthOf3dLineSegment;
 
 public class Challenge {
     public static double lineLength(int[][] point) {
