@@ -1,10 +1,12 @@
 package Math_or_Cryptography.ProductOfPrimes;
 
 public class Challenge {
+
     public static boolean productOfPrimes(int num) {
         return checkPrime(factors(num));
     }
 
+    // Function to check if two integers (input as an integer array) are both prime or not
     static boolean checkPrime(int [] factors) {
         boolean factor0 = false, factor1 = false;
         // Edge Cases
@@ -39,6 +41,7 @@ public class Challenge {
         return true;
     }
 
+    // Function to generate two factors of a given integer, returned as an integer array ([-1,-1] is returned if no two factors exist).
     static int[] factors(int num) {
         // Edge Cases
         if(num <= 1) return new int[]{-1, -1};
