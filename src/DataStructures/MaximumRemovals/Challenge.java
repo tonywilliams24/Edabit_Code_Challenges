@@ -1,10 +1,10 @@
 package DataStructures.MaximumRemovals;
 
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 class Tree {
 
-    static TreeSet<Node> nodes = new TreeSet<>();
+    static final TreeMap<String, Node> nodes = new TreeMap<>();
     static int max = 0;
 
     static class Node implements Comparable<Node>{
@@ -24,39 +24,25 @@ class Tree {
 
         Node(String data) {
             this.data = data;
-            nodes.add(this);
+            nodes.put(data,this);
             int leftIndex = data.indexOf(leftMove);
             int rightIndex = data.indexOf(rightMove);
             if(leftIndex!=-1) {
                 StringBuilder leftData = new StringBuilder(data);
                 leftData.delete(leftIndex, leftIndex + 5);
-                if(!nodes.contains(singleNode(leftData.toString()))) {
+                if(!nodes.containsKey(leftData.toString())) {
                     setLeft(new Node(leftData.toString(), this, this.level + 1));
                 }
-                else {
-                    for(Node n2: nodes) {
-                        if(n2.equals(singleNode(leftData.toString()))) {
-                            setLeft(n2);
-                            break;
-                        }
-                    }
-                }
+                else setLeft(nodes.get(leftData.toString()));
             }
             else setLeft(null);
             if(rightIndex!=-1) {
                 StringBuilder rightData = new StringBuilder(data);
                 rightData.delete(rightIndex, rightIndex + 6);
-                if(!nodes.contains(singleNode(rightData.toString()))) {
+                if(!nodes.containsKey(rightData.toString())) {
                     setRight(new Node(rightData.toString(), this, this.level + 1));
                 }
-                else {
-                    for(Node n2: nodes) {
-                        if(n2.equals(singleNode(rightData.toString()))) {
-                            setRight(n2);
-                            break;
-                        }
-                    }
-                }
+                else setRight(nodes.get(rightData.toString()));
             }
             else setRight(null);
         }
@@ -65,40 +51,26 @@ class Tree {
             this.level = level;
             this.data = data;
             this.previous = previous;
-            nodes.add(this);
+            nodes.put(data,this);
             if(level>max) max=level;
             int leftIndex = data.indexOf(leftMove);
             int rightIndex = data.indexOf(rightMove);
             if(leftIndex!=-1) {
                 StringBuilder leftData = new StringBuilder(data);
                 leftData.delete(leftIndex, leftIndex + 5);
-                if(!nodes.contains(singleNode(leftData.toString()))) {
+                if(!nodes.containsKey(leftData.toString())) {
                     setLeft(new Node(leftData.toString(), this, this.level + 1));
                 }
-                else {
-                    for(Node n2: nodes) {
-                        if(n2.equals(singleNode(leftData.toString()))) {
-                            setLeft(n2);
-                            break;
-                        }
-                    }
-                }
+                else setLeft(nodes.get(leftData.toString()));
             }
             else setLeft(null);
             if(rightIndex!=-1) {
                 StringBuilder rightData = new StringBuilder(data);
                 rightData.delete(rightIndex, rightIndex + 6);
-                if (!nodes.contains(singleNode(rightData.toString()))) {
+                if(!nodes.containsKey(rightData.toString())) {
                     setRight(new Node(rightData.toString(), this, this.level + 1));
                 }
-                else {
-                    for(Node n2: nodes) {
-                        if(n2.equals(singleNode(rightData.toString()))) {
-                            setRight(n2);
-                            break;
-                        }
-                    }
-                }
+                else setRight(nodes.get(rightData.toString()));
             }
             else setRight(null);
         }
@@ -160,29 +132,6 @@ class Challenge {
         Tree.nodes.clear();
         Tree.max = 0;
         Tree.Node root = new Tree.Node(start);
-
-        /*
-        int level = 0;
-        Queue<Tree.Node> bfs = new LinkedList<>();
-        ArrayList<Tree.Node> treeRowList = new ArrayList<>();
-        bfs.add(root);
-        while (!bfs.isEmpty()) {
-            if (treeRowList.size() >= Math.pow(2, level)) {
-                level++;
-                treeRowList.clear();
-            }
-            Tree.Node current = bfs.poll();
-            treeRowList.add(current);
-            if (current != null) {
-                Tree.Node left = current.getLeft();
-                Tree.Node right = current.getRight();
-                if (left != null || right != null) {
-                    bfs.add(left);
-                    bfs.add(right);
-                }
-            }
-        }
-        */
 
         return Tree.max;
     }
