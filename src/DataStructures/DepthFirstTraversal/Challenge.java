@@ -6,34 +6,47 @@ import java.util.*;
 
 public class Challenge {
     static HashSet<Integer> visitedSet = new HashSet<>();
-    static ArrayList<Integer> doneList = new ArrayList<>();
+    static Queue<Integer> doneQueue = new LinkedList<>();
     static ArrayList<Integer> visitedList = new ArrayList<>();
     static HashMap<Integer, TreeSet<Integer>> graphMap = new HashMap();
 
     public static int[][] depthFirstSearch(int[][] graph) {
+        int[][] result = new int[2][graph.length];
         visitedSet.clear();
-        doneList.clear();
+        visitedList.clear();
+        doneQueue.clear();
         visitedSet.add(0);
-        visitedList.add(0);
+        visitedList.add(1);
         buildGraphMap(graph);
         dFS(0);
-        System.out.println(visitedList);
-        System.out.println(doneList);
-        return new int[0][0];
+//        System.out.println(visitedList);
+//        System.out.println(doneQueue);
+        for(int i=0; i<graph.length; i++) {
+            result[0][i] = visitedList.get(i);
+        }
+        while(!doneQueue.isEmpty()){
+            for(int i=0; i<graph.length; i++){
+                result[1][doneQueue.poll()] = i+1;
+            }
+        }
+//        System.out.println(Arrays.deepToString(result));
+
+        return result;
     }
 
     private static void buildGraphMap(int[][] graph) {
+        graphMap.clear();
         int V = graph.length;
         int E = graph[0].length;
 
 
         for(int i=0; i<V; i++) {
-            System.out.print(i + " ");
+//            System.out.print(i + " ");
             graphMap.put(i, new TreeSet<>());
             for(int j=0; j<E; j++) {
                 if(graph[i][j]!=0) addEdge(graphMap, i, j);
             }
-            System.out.println(graphMap.get(i));
+//            System.out.println(graphMap.get(i));
         }
     }
 
@@ -58,12 +71,12 @@ public class Challenge {
                 }
                 else {
                     visitedSet.add(check);
-                    visitedList.add(check);
+                    visitedList.add(check+1);
                     dFS(check);
                 }
             }
         }
-        doneList.add(v);
+        doneQueue.add(v);
         return;
     }
 
