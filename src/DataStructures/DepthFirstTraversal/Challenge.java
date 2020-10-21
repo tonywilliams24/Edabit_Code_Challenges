@@ -1,53 +1,62 @@
-// INCOMPLETE (but close enough to take a look)
-
 package DataStructures.DepthFirstTraversal;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.TreeSet;
 
 public class Challenge {
     static HashSet<Integer> visitedSet = new HashSet<>();
     static Queue<Integer> doneQueue = new LinkedList<>();
-    static ArrayList<Integer> visitedList = new ArrayList<>();
-    static HashMap<Integer, TreeSet<Integer>> graphMap = new HashMap();
+    static Queue<Integer> visitedQueue = new LinkedList<>();
+    static HashMap<Integer, TreeSet<Integer>> graphMap = new LinkedHashMap();
+    static int allNodes;
 
     public static int[][] depthFirstSearch(int[][] graph) {
+        int start;
         int[][] result = new int[2][graph.length];
         visitedSet.clear();
-        visitedList.clear();
+        visitedQueue.clear();
         doneQueue.clear();
-        visitedSet.add(0);
-        visitedList.add(1);
         buildGraphMap(graph);
-        dFS(0);
-//        System.out.println(visitedList);
-//        System.out.println(doneQueue);
-        for(int i=0; i<graph.length; i++) {
-            result[0][i] = visitedList.get(i);
+        while(!graphMap.isEmpty()) {
+            Map.Entry<Integer, TreeSet<Integer>> node = graphMap.entrySet().iterator().next();
+            start = node.getKey();
+            visitedSet.add(start);
+            visitedQueue.add(start);
+            dFS(start);
+        }
+        while(!visitedQueue.isEmpty()) {
+            for(int i=0; i<graph.length; i++) {
+                result[0][visitedQueue.poll()] = i+1;
+            }
         }
         while(!doneQueue.isEmpty()){
             for(int i=0; i<graph.length; i++){
                 result[1][doneQueue.poll()] = i+1;
             }
         }
-//        System.out.println(Arrays.deepToString(result));
 
         return result;
     }
 
     private static void buildGraphMap(int[][] graph) {
         graphMap.clear();
+        allNodes =0;
         int V = graph.length;
         int E = graph[0].length;
 
 
         for(int i=0; i<V; i++) {
-//            System.out.print(i + " ");
             graphMap.put(i, new TreeSet<>());
             for(int j=0; j<E; j++) {
                 if(graph[i][j]!=0) addEdge(graphMap, i, j);
             }
-//            System.out.println(graphMap.get(i));
         }
+        allNodes = graphMap.size();
     }
 
     static void addEdge(HashMap<Integer, TreeSet<Integer>> graph, int v, int e) {
@@ -62,21 +71,22 @@ public class Challenge {
         while(!currentSet.isEmpty()) {
             check = currentSet.pollFirst();
             while (check != -1) {
-                if(visitedSet.contains(check)) {
+                if (visitedSet.contains(check)) {
                     try {
                         check = currentSet.pollFirst();
                     } catch (Exception e) {
                         check = -1;
                     }
-                }
-                else {
+                } else {
                     visitedSet.add(check);
-                    visitedList.add(check+1);
+                    visitedQueue.add(check);
                     dFS(check);
                 }
             }
+            if(visitedSet.size()== allNodes) break;
         }
         doneQueue.add(v);
+        graphMap.remove(v);
         return;
     }
 

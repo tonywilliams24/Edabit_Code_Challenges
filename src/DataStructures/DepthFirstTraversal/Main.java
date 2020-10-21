@@ -2,6 +2,8 @@
 
 package DataStructures.DepthFirstTraversal;
 
+import java.util.Arrays;
+
 import static DataStructures.DepthFirstTraversal.Challenge.*;
 
 public class Main {
@@ -85,7 +87,11 @@ public class Main {
             largeSolution[1][i] = largeGraph.length - i;
         }
 
-        depthFirstSearch(graph1);
+        System.out.println((Arrays.deepToString(depthFirstSearch(graph1))));
+        System.out.println((Arrays.deepToString(depthFirstSearch(graph2))));
+        System.out.println((Arrays.deepToString(depthFirstSearch(graph3))));
+        System.out.println((Arrays.deepToString(depthFirstSearch(singleNode))));
+        System.out.println((Arrays.deepToString(depthFirstSearch(largeGraph))));
 
     }
 }
