@@ -1,4 +1,4 @@
-package dataStructures.maximumRemovals;
+package commonDataStructuresAlgorithms.maximumRemovals;
 
 import java.util.TreeMap;
 

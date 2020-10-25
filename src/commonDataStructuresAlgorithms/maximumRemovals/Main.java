@@ -1,6 +1,6 @@
-package dataStructures.maximumRemovals;
+package commonDataStructuresAlgorithms.maximumRemovals;
 
-import static dataStructures.maximumRemovals.Challenge.*;
+import static commonDataStructuresAlgorithms.maximumRemovals.Challenge.*;
 
 public class Main {
     public static void main(String[] args) {

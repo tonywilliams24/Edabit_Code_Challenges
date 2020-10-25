@@ -1,10 +1,10 @@
 // INCOMPLETE (but close enough to take a look)
 
-package dataStructures.depthFirstTraversal;
+package commonDataStructuresAlgorithms.depthFirstTraversal;
 
 import java.util.Arrays;
 
-import static dataStructures.depthFirstTraversal.Challenge.*;
+import static commonDataStructuresAlgorithms.depthFirstTraversal.Challenge.*;
 
 public class Main {
     public static void main(String[] args) {
