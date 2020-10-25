@@ -1,4 +1,4 @@
-package recursionLoopsEtc.JosephusProblem;
+package recursionLoopsEtc.josephusProblem;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package recursionLoopsEtc.JosephusProblem;
+package recursionLoopsEtc.josephusProblem;
 
-import static recursionLoopsEtc.JosephusProblem.Challenge.*;
+import static recursionLoopsEtc.josephusProblem.Challenge.*;
 
 public class Main {
     public static void main(String[] args) {
