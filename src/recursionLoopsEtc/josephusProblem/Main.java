@@ -38,5 +38,7 @@ public class Main {
         System.out.println(josephus(41, 3));
         System.out.println(josephus(14, 2));
         System.out.println(josephus(35, 11));
+        System.out.println(josephus(20, 1));
+        System.out.println(josephus(15, 15));
     }
 }

@@ -1,4 +1,4 @@
-package commonDataStructuresAlgorithms.depthFirstTraversal;
+package dataStructures.depthFirstTraversal;
 
 import java.util.HashMap;
 import java.util.HashSet;
