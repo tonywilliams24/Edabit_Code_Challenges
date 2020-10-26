@@ -1,4 +1,4 @@
-# Edabit_Code_Challenges
+# Edabit Code Challenges
 
 https://edabit.com/challenges/java
 
@@ -12,4 +12,5 @@ Challenges are only listed in one category, but most challenges contain elements
 
 "Main" class contains tests and description of the challenge
 
-
+Completed Challenges On Edabit:
+https://edabit.com/user/MhSbFaHSTBk2MMZyo
