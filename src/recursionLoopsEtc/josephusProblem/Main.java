@@ -18,14 +18,10 @@ public class Main {
         Generalize this problem by creating a function that accepts the number of soldiers n and the interval at which
         they are killed i, and returns the position of THE LONE fortunate survivor.
 
-        Examples
-
+        Examples:
         josephus(41, 3) ➞ 31
-
         josephus(35, 11) ➞ 18
-
         josephus(11, 1) ➞ 11
-
         josephus(2, 2) ➞ 1
 
         Notes
