@@ -4,8 +4,12 @@ import static recursionLoopsEtc.josephusProblem.Challenge.*;
 
 public class Main {
     public static void main(String[] args) {
+
         /*
+
         The Josephus Problem
+
+        https://edabit.com/challenge/owwJbMCXJBv9n5FJD
 
         History (Wikipedia):
         The problem is named after Flavius Josephus, a Jewish historian living in the 1st century. According to
@@ -27,9 +31,10 @@ public class Main {
         Notes
         Assume the positions are numbered 1 to n going clockwise around the circle.
         If the interval is 3, the first soldiers to die are at positions 3, 6, and 9.
+
          */
 
-
+        // Testes copied from edabit.com
 
         System.out.println(josephus(41, 3));
         System.out.println(josephus(14, 2));
